@@ -1,11 +1,39 @@
 #!/usr/bin/env bash
 
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
+all()
+{
+	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 printf.c  std_funcs.c  test.c  type_funcs.c
 
-if [ $(echo $?) = 0 ]; then
+	if [ $(echo $?) = 0 ]; then
 
-	./a.out
+		./a.out
+		rm a.out
 
-else
-	echo -e "\n Compilation error will not execute!"
-fi
+	else
+		echo -e "\n Compilation error will not execute!"
+	fi
+}
+
+itoa()
+{
+	gcc -Wall -Werror -Wextra -pedantic -std=gnu89  std_funcs.c  test1.c
+
+	if [ $(echo $?) = 0 ]; then
+
+		./a.out
+		rm a.out
+
+	else
+		echo -e "\n Compilation error will not execute!"
+	fi
+}
+
+case $1 in
+	all)
+		all
+		;;
+	itoa)
+		 itoa
+	;;
+
+esac
