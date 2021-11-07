@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * _strlen - get length of string
@@ -43,11 +42,18 @@ char *_strcpy(char *dest, char *src)
 	return (src);
 }
 
+int _abs(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
 
 char *_itoa(int d)
 {
 	char *s;
-	int b = d, l = 0, i;
+	int b = _abs(d), l = 0, i = 0, n = 0;
 
 	if (d == 0)
 	{
@@ -66,11 +72,18 @@ char *_itoa(int d)
 		l++;
 	}
 
+	if (d < 0)
+		n = 1;
 
-	s = malloc(sizeof(char) * (l + 1));
+	s = malloc(sizeof(char) * (l + n + 1));
 	if (s == NULL)
 		return (NULL);
 
+	if (n)
+	{
+		s[i++] = '-';
+		d = _abs(d);
+	}
 	while (d != 0)
 	{
 		s[i] = (d % 10) + '0';
