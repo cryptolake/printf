@@ -49,7 +49,7 @@ char *pint(va_list ap)
 	int d;
 
 	d = va_arg(ap, int);
-	return (itoa(d));
+	return (_itoa(d));
 }
 
 /**
