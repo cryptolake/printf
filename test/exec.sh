@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-all()
+print()
 {
 	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 printf.c  std_funcs.c  test.c  type_funcs.c
 
@@ -42,7 +42,7 @@ strlen()
 }
 
 case $1 in
-	all)
+	print)
 		all
 		;;
 	itoa)
@@ -50,6 +50,9 @@ case $1 in
 	;;
 	strlen)
 		strlen
+		;;
+	*)
+		echo "Type a test name!"
 		;;
 
 esac

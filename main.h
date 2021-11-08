@@ -10,6 +10,10 @@ typedef struct {
 
 } types;
 
+char *pchr(va_list ap);
+char *pstr(va_list ap);
+char *pint(va_list ap);
+
 int _printf(const char *format, ...);
 
 int _strlen(char *s);
