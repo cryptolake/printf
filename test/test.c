@@ -41,8 +41,33 @@ int main(void) {
   _printf("");
   printf("");
 
- /*  _printf("NULL = %s", NULL); */
-  printf("NULL = %s", NULL);
+  _printf("NULL = %s\n", NULL); 
+  printf("NULL = %s\n", NULL);
+
+  printf("test %%%d%d%%\n",5,6);
+  _printf("test %%%d%d%%\n",5,6);
+  
+  printf("test %%%i%%%d%%%d%%\n",5,6,7);
+  _printf("test %%%i%%%d%%%d%%\n",5,6,7);
+
+  printf("test %%%i%%%d%%%d%%%r\n",5,6,7);
+  _printf("test %%%i%%%d%%%d%%%r\n",5,6,7);
+
+  printf("%d%d%%%r%%%d%r%i",2323,333,55555,234);
+  putchar('\n');
+  _printf("%d%d%%%r%%%d%r%i",2323,333,55555,234);
+  putchar('\n');
+
+  len = printf("%");
+    putchar('\n');
+
+  printf("len = %d\n",len);
+
+  len = _printf("%");
+    putchar('\n');
+
+  _printf("len = %d\n",len);
+ 
 
 
 /*   _printf("Unknown:[%r]\n");

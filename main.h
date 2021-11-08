@@ -19,7 +19,7 @@ char *_strdup(char *str);
 
 int _printf(const char *format, ...);
 
-int _strlen(char *s);
+int _strlen(const char *s);
 
 char *_strcpy(char *dest, char *src);
 char *_itoa(int d);

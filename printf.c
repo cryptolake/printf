@@ -1,9 +1,15 @@
 #include "main.h"
 
+int _putchar(char c)
+{
+	return(write(1, &c, 1));
+}
+
+
 int _printf(const char *format, ...)
 {
 	char *s;
-	int l = 0;
+	int l;
 
 	types ops[] = {
 	{'c', pchr},
@@ -13,10 +19,13 @@ int _printf(const char *format, ...)
 	{'%', pper},
 	{0, NULL}
 	};
-	int i = 0, j = 0;
+	int i = 0, j = 0, d = 0;
 
 	va_list ap;
 	va_start(ap, format);
+	
+	if (_strlen(format) == 1 && format[i] == '%')
+		return (-1);
 	
 	while (format[i])
 	{
@@ -35,15 +44,20 @@ int _printf(const char *format, ...)
 				free(s);
 				i += 2;
 			}
-			
+			else 
+			{
+				d = _putchar(format[i]);
+				i += d;
+				l += d;
+			}
 		}
-		
-		s = malloc(sizeof(char));
-		s[0] = format[i];
-		write(STDOUT_FILENO, s, 1);
-		free(s);
-		i++;
-		l++;
+		else
+		{
+			d = _putchar(format[i]);
+			i += d;
+			l += d;
+		}
 	}
+	va_end(ap);
 	return (l);
 }

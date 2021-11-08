@@ -30,6 +30,7 @@ char *pstr(va_list ap)
 	char *s;
 
 	s = _strdup(va_arg(ap, char *));
+	
 	if (s == NULL)
 		s = _strdup("(null)");
 
