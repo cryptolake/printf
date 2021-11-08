@@ -28,9 +28,8 @@ char *pchr(va_list ap)
 char *pstr(va_list ap)
 {
 	char *s;
-	int l;
 
-	s = va_arg(ap, char *);
+	s = _strdup(va_arg(ap, char *));
 	if (s == NULL)
 		s = "(null)";
 
@@ -45,11 +44,22 @@ char *pstr(va_list ap)
  **/
 char *pint(va_list ap)
 {
-	char *s;
 	int d;
 
 	d = va_arg(ap, int);
 	return (_itoa(d));
+}
+
+/**
+ * 
+ * 
+ */
+char *pper(va_list ap __attribute__((unused)))
+{
+	char *s;
+	
+	s = _strdup("%");
+	return (s);
 }
 
 /**

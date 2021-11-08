@@ -38,8 +38,43 @@ char *_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 	}
 
-
 	return (src);
+}
+
+/**
+ * _strdup - duplicate string in new memory addr
+ * @str: string
+ *
+ * Return: new string addr
+ **/
+char *_strdup(char *str)
+{
+	char *s;
+	unsigned int l, i;
+
+
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
+	else
+	{
+
+		l = _strlen(str);
+		s = malloc(l + 1);
+		if (s == NULL)
+		{
+			return (NULL);
+		}
+		for (i = 0; i < l; i++)
+		{
+			s[i] = str[i];
+		}
+
+	}
+
+	return (s);
 }
 
 int _abs(int n)
@@ -50,21 +85,42 @@ int _abs(int n)
 }
 
 
-char *_itoa(int d)
+/**
+ * count_d10 - count number of digits
+ *
+ * @n: number
+ *
+ * Return: 10^count-1
+ **/
+int count_d10(int n)
+{
+	int x;
+
+	x = 1;
+	n /= 10;
+	while (n != 0)
+	{
+		n /= 10;
+		x *= 10;
+	}
+	return (x);
+}
+
+/**
+ * _itoa - int to str
+ *
+ * @n: number
+ **/
+char *_itoa(int n)
 {
 	char *s;
-	int b = _abs(d), l = 0, i = 0, n = 0;
-
-	if (d == 0)
-	{
-		s = malloc(sizeof(char) * 2);
-		if (s == NULL)
-			return (NULL);
-
-		s[0] = '0';
-		s[1] = '\0';
-		return (s);
-	}
+	int x = 0,
+	y = 0,
+	c = 0,
+	i = 0,
+	b = _abs(n),
+	l = 0,
+	e = 1;
 
 	while (b != 0)
 	{
@@ -72,23 +128,25 @@ char *_itoa(int d)
 		l++;
 	}
 
-	if (d < 0)
-		n = 1;
+	x = count_d10(n);
+	if (n < 0)
+	{
+		y = 1;
+		e = -1;
+	}
 
-	s = malloc(sizeof(char) * (l + n + 1));
+	s = malloc(sizeof(char) * (l + y + 1));
 	if (s == NULL)
 		return (NULL);
 
-	if (n)
-	{
+	if (n < 0)
 		s[i++] = '-';
-		d = _abs(d);
-	}
-	while (d != 0)
-	{
-		s[i] = (d % 10) + '0';
 
-		d /= 10;
+	while (x != 0)
+	{
+		c = e * ((n / x) % 10) + '0';
+		x /= 10;
+		s[i] = c;
 		i++;
 	}
 

@@ -6,6 +6,7 @@ print()
 
 	if [ $(echo $?) = 0 ]; then
 
+		valgrind --track-origins=yes ./a.out
 		./a.out
 		rm a.out
 
@@ -43,7 +44,7 @@ strlen()
 
 case $1 in
 	print)
-		all
+		print
 		;;
 	itoa)
 		 itoa

@@ -13,6 +13,9 @@ typedef struct {
 char *pchr(va_list ap);
 char *pstr(va_list ap);
 char *pint(va_list ap);
+char *pper(va_list ap);
+
+char *_strdup(char *str);
 
 int _printf(const char *format, ...);
 
