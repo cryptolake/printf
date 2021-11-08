@@ -67,7 +67,7 @@ char *_strdup(char *str)
 		{
 			return (NULL);
 		}
-		for (i = 0; i < l; i++)
+		for (i = 0; i <= l; i++)
 		{
 			s[i] = str[i];
 		}
@@ -149,6 +149,8 @@ char *_itoa(int n)
 		s[i] = c;
 		i++;
 	}
+
+	s[i] = '\0';
 
 	return (s);
 }

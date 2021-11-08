@@ -2,7 +2,7 @@
 
 print()
 {
-	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 printf.c  std_funcs.c  test.c  type_funcs.c
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test.c  type_funcs.c
 
 	if [ $(echo $?) = 0 ]; then
 
@@ -17,7 +17,7 @@ print()
 
 itoa()
 {
-	gcc -Wall -Werror -Wextra -pedantic -std=gnu89  std_funcs.c  test1.c
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89  std_funcs.c  test1.c
 
 	if [ $(echo $?) = 0 ]; then
 
@@ -31,7 +31,7 @@ itoa()
 
 strlen()
 {
-	gcc -Wall -Werror -Wextra -pedantic -std=gnu89  std_funcs.c  test2.c
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89  std_funcs.c  test2.c
 	if [ $(echo $?) = 0 ]; then
 
 		./a.out
