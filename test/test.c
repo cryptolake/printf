@@ -61,14 +61,26 @@ int main(void) {
   len = printf("%");
     putchar('\n');
 
-  printf("len = %d\n",len);
+  printf("len when %%= %d\n",len);
 
   len = _printf("%");
     putchar('\n');
 
-  _printf("len = %d\n",len);
- 
+  _printf("len when %% = %d\n",len);
 
+ len = printf(NULL);
+   putchar('\n');
+
+ printf("len when NULL= %d\n", len);
+
+ len = _printf(NULL);
+   putchar('\n');
+
+ _printf("len when NULL= %d\n", len);
+
+
+ len = _printf("Lets print binary!\n");
+ _printf("decimal: %i binary: %b", len, len);
 
 /*   _printf("Unknown:[%r]\n");
  */  /* printf("Unknown:[%r]\n"); */

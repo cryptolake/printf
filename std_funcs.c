@@ -154,3 +154,44 @@ char *_itoa(int n)
 
 	return (s);
 }
+
+/**
+ * _itoau - unsigned int to str
+ *
+ * @n: number
+ **/
+char *_itoau(size_t n)
+{
+	char *s;
+	size_t x = 0,
+	y = 0,
+	c = 0,
+	i = 0,
+	b = _abs(n),
+	l = 0;
+
+	while (b != 0)
+	{
+		b /= 10;
+		l++;
+	}
+
+	x = count_d10(n);
+
+
+	s = malloc(sizeof(char) * (l + y + 1));
+	if (s == NULL)
+		return (NULL);
+
+	while (x != 0)
+	{
+		c = ((n / x) % 10) + '0';
+		x /= 10;
+		s[i] = c;
+		i++;
+	}
+
+	s[i] = '\0';
+
+	return (s);
+}

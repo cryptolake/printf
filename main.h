@@ -14,6 +14,7 @@ char *pchr(va_list ap);
 char *pstr(va_list ap);
 char *pint(va_list ap);
 char *pper(va_list ap);
+char *pbi(va_list ap);
 
 char *_strdup(char *str);
 
@@ -23,5 +24,6 @@ int _strlen(const char *s);
 
 char *_strcpy(char *dest, char *src);
 char *_itoa(int d);
+char *_itoau(size_t n);
 
 #endif

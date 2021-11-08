@@ -1,15 +1,15 @@
 #include "main.h"
 
-int _putchar(char c)
+void _putchar(char c)
 {
-	return(write(1, &c, 1));
+	write(STDOUT_FILENO, &c, 1);
 }
 
 
 int _printf(const char *format, ...)
 {
 	char *s;
-	int l;
+	int l = 0;
 
 	types ops[] = {
 	{'c', pchr},
@@ -17,16 +17,20 @@ int _printf(const char *format, ...)
 	{'i', pint},
 	{'d', pint},
 	{'%', pper},
+	{'b', pbi},
 	{0, NULL}
 	};
-	int i = 0, j = 0, d = 0;
+
+	int i = 0, j = 0;
 
 	va_list ap;
-	va_start(ap, format);
 	
-	if (_strlen(format) == 1 && format[i] == '%')
+
+	if (format == NULL || (_strlen(format) == 1 && format[i] == '%'))
 		return (-1);
-	
+
+	va_start(ap, format);
+
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -46,16 +50,16 @@ int _printf(const char *format, ...)
 			}
 			else 
 			{
-				d = _putchar(format[i]);
-				i += d;
-				l += d;
+				_putchar(format[i]);
+				i++;
+				l++;
 			}
 		}
 		else
 		{
-			d = _putchar(format[i]);
-			i += d;
-			l += d;
+			_putchar(format[i]);
+			i++;
+			l++;
 		}
 	}
 	va_end(ap);

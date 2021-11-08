@@ -30,7 +30,7 @@ char *pstr(va_list ap)
 	char *s;
 
 	s = _strdup(va_arg(ap, char *));
-	
+
 	if (s == NULL)
 		s = _strdup("(null)");
 
@@ -52,7 +52,8 @@ char *pint(va_list ap)
 }
 
 /**
- * 
+ * pper - print % arg
+ * @ap: arg
  * 
  */
 char *pper(va_list ap __attribute__((unused)))
@@ -64,10 +65,24 @@ char *pper(va_list ap __attribute__((unused)))
 }
 
 /**
- * pflt - print float arg
+ * pbi - print binary arg
  * @ap: arg
  *
  **/
-/* void pflt(va_list ap) */
-/* { */
-/* } */
+char *pbi(va_list ap)
+{
+	size_t n;
+	size_t bin = 0;
+	int rem, i = 1;
+
+	n = va_arg(ap, size_t);
+	while (n!=0) 
+  	{
+    	rem = n % 2;
+    	n /= 2;
+    	bin += rem * i;
+    	i *= 10;
+  	}
+
+   return (_itoau(bin));
+}
