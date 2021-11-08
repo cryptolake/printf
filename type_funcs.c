@@ -46,7 +46,10 @@ char *pstr(va_list ap)
 char *pint(va_list ap)
 {
 	char *s;
+	int d;
 
+	d = va_arg(ap, int);
+	return (itoa(d));
 }
 
 /**
