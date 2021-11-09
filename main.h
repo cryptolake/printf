@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 typedef unsigned long int size_t;
+
 typedef struct {
 	char tp;
 	char *(*f)(va_list ap);
@@ -17,6 +18,11 @@ char *pint(va_list ap);
 char *pper(va_list ap);
 char *pbi(va_list ap);
 char *punsign(va_list ap);
+char *poct(va_list ap);
+char *phex(va_list ap);
+char *pheX(va_list ap);
+
+char *from_dec(size_t n, int base, int maj);
 
 char *_strdup(char *str);
 

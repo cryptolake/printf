@@ -227,3 +227,60 @@ void rev_string(char *s)
         swap(&s[i], &s[n - i - 1]);
 
 }
+
+/**
+* reval - return char value from integer
+* 
+* @num: value
+*
+**/
+
+char reval(int num, int maj)
+{
+    if (num >= 0 && num <= 9)
+        return (char)(num + '0');
+	else if (maj)
+		return (char)(num - 10 + 'A');
+    else
+        return (char)(num - 10 + 'a');
+}
+
+
+/**
+* from_dec - convert to decimal any base
+* 
+* @n: number
+* @base: base
+*
+**/
+char *from_dec(size_t n, int base, int maj)
+{
+	char *s;
+	int rem = 0, i = 0;
+
+	if (n == 0)
+	{
+		s = _strdup("0");
+		return (s);
+	}
+
+	
+	s = malloc(sizeof(char));
+	
+	while (n!=0)
+  	{
+    	rem = n % base;
+    	n /= base;
+		s = realloc(s, i + 1);
+		if (s == NULL)
+			return (NULL);
+    	s[i++] = reval(rem, maj);
+  	}
+	/* printf("\ni = %d\n",i); */
+	s = realloc(s, i + 1);
+	s[i] = '\0';
+	rev_string(s);
+
+
+   return (s);
+}

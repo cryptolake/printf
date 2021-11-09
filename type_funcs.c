@@ -83,36 +83,58 @@ char *pper(va_list ap __attribute__((unused)))
 char *pbi(va_list ap)
 {
 	size_t n;
-	char *bin;
-	int rem = 0, i = 0;
+	char *s;
 
 	n = va_arg(ap, size_t);
-	if (n == 0)
-	{
-		bin = _strdup("0");
-		return (bin);
-	}
-
-	
-	bin = malloc(sizeof(char));
-	
-	while (n!=0)
-  	{
-    	rem = n % 2;
-    	n /= 2;
-		bin = realloc(bin, i + 1);
-		if (bin == NULL)
-			return (NULL);
-    	bin[i++] = rem + '0';
-  	}
-	/* printf("\ni = %d\n",i); */
-	bin = realloc(bin, i + 1);
-	bin[i] = '\0';
-	rev_string(bin);
-
-
-   return (bin);
+	s = from_dec(n, 2, 0);
+	return (s);
 }
+
+/**
+ * poct - return octal arg
+ * @ap: arg
+ *
+ **/
+char *poct(va_list ap)
+{
+	size_t n;
+	char *s;
+	
+	n = va_arg(ap, size_t);
+	s = from_dec(n, 8, 0);
+	return (s);
+}
+
+/**
+ * pheX - return hex arg
+ * @ap: arg
+ *
+ **/
+char *pheX(va_list ap)
+{
+	size_t n;
+	char *s;
+	
+	n = va_arg(ap, size_t);
+	s = from_dec(n, 16, 1);
+	return (s);
+}
+
+/**
+ * phex - return hex arg
+ * @ap: arg
+ *
+ **/
+char *phex(va_list ap)
+{
+	size_t n;
+	char *s;
+	
+	n = va_arg(ap, size_t);
+	s = from_dec(n, 16, 0);
+	return (s);
+}
+
 /**
  * punsign - return unsigned int arg in string
  * @ap: arg
@@ -129,11 +151,7 @@ char *punsign(va_list ap)
 		s = _strdup("0");
 		return(s);
 	}
-	if (d < 0)
-	{
-		s = _strdup("4294967271");
-		return (s);
-	}
+
 	s = _itoau(d);
 	
 	return (s);
