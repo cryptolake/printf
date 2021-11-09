@@ -46,9 +46,17 @@ This file contains the functions to handle each argument type.
 
 #### [std_funcs.c](./std_funcs.c)
 
-This file contains some general purpose functions some are
+This file contains some general purpose functions some are clones of standard c functions.
 
-clone of standard c functions.
+## Testing
+
+Thet [test](test) directory contains the different tests in test.c format.
+
+To run tests do:
+
+`./exec.sh [test name]`
+
+check [exec.sh](./test/exec.sh) to see the tests format.
 
 ## Functions used
 
