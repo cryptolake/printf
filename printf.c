@@ -46,6 +46,8 @@ int _printf(const char *format, ...)
 			if (ops[j].tp == format[i + 1])
 			{
 				s = ops[j].f(ap);
+				if (s == NULL)
+					return (-1);
 				l += _strlen(s);
 		    	
 				write(STDOUT_FILENO, s, _strlen(s));

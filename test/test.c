@@ -117,7 +117,9 @@ int main(void)
 	printf("Test result = \"\n", len);
 
 	len = _printf("an interesting test!\n");
-  _printf("an interesting test!\n");
 	_printf("Test result = \"\n", len);
+	putchar('\n');
+	printf("Normal hex\n");
+_printf("1 : %X %x\n", 15 ,15);
 	return (0);
 }
