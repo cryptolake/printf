@@ -80,7 +80,12 @@ int main(void) {
 
 
  len = _printf("Lets print binary!\n");
- _printf("decimal: %i binary: %b", len, len);
+ _printf("decimal: %i binary: %b\n", len, len);
+
+ _printf("decimal: %i binary: %b\n", 2000, 2000);
+ _printf("decimal: %i binary: %b\n", 1952, 1952);
+ _printf("decimal: %i binary: %b\n", 999999, 999999);
+ 
 
 /*   _printf("Unknown:[%r]\n");
  */  /* printf("Unknown:[%r]\n"); */

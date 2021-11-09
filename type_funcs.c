@@ -71,33 +71,19 @@ char *pper(va_list ap __attribute__((unused)))
  **/
 char *pbi(va_list ap)
 {
-	/* size_t n;
-	size_t bin = 0;
-	int rem, i = 1;
+	size_t n;
+	char *bin = malloc(sizeof(char));
+	int rem, i = 0;
 
 	n = va_arg(ap, size_t);
 	while (n!=0) 
   	{
     	rem = n % 2;
     	n /= 2;
-    	bin += rem * i;
-    	i *= 10;
+    	bin[i++] = rem + '0';
+		bin = realloc(bin, i);
   	}
-
-   return (_itoau(bin)); */
-    char *bin;
-	unsigned int k;
-	int i = 0;
-
-	k = va_arg(ap, unsigned int);
-   bin = (char *)malloc(sizeof(char));
-   while(k > 0) {
-      bin [i] = (k % 2) + '0';
-      k = k/2;
-      bin = (char *)realloc(bin, sizeof(char) * (sizeof(bin)+1));
-	i++;
-   }
-   bin[sizeof(bin)-1] = '\0';
+	rev_string(bin);
 
    return (bin);
 }

@@ -195,3 +195,35 @@ char *_itoau(size_t n)
 
 	return (s);
 }
+
+/**
+ * swap - swap two variables
+ *
+ * @a: first var
+ * @b: second var
+ **/
+void swap(char *a, char *b)
+{
+	int c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
+}
+
+
+/**
+ * rev_string - reverse string
+ *
+ * @s: string
+ **/
+void rev_string(char *s)
+{
+   int n = _strlen(s);
+   int i;
+ 
+
+    for (i = 0; i < n / 2; i++)
+        swap(&s[i], &s[n - i - 1]);
+
+}

@@ -25,5 +25,5 @@ int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
 char *_itoa(int d);
 char *_itoau(size_t n);
-
+void rev_string(char *s);
 #endif
