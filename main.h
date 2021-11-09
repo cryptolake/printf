@@ -34,4 +34,6 @@ char *_strcpy(char *dest, char *src);
 char *_itoa(int d);
 char *_itoau(size_t n);
 void rev_string(char *s);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+
 #endif
