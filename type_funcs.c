@@ -75,8 +75,10 @@ char *pbi(va_list ap)
 	char *bin = malloc(sizeof(char));
 	int rem, i = 0;
 
+	bin[0] = '0';
+	
 	n = va_arg(ap, size_t);
-	while (n!=0) 
+	while (n!=0)
   	{
     	rem = n % 2;
     	n /= 2;

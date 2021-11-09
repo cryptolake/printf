@@ -38,8 +38,10 @@ int main(void) {
   _printf("Len:[%d]\n", len);
   printf("Len:[%d]\n", len2);
 
-  _printf("");
-  printf("");
+  len = _printf("");
+  len2 = printf("");
+  _printf("Len:[%d]\n", len);
+  printf("Len:[%d]\n", len2);
 
   _printf("NULL = %s\n", NULL); 
   printf("NULL = %s\n", NULL);
@@ -85,7 +87,24 @@ int main(void) {
  _printf("decimal: %i binary: %b\n", 2000, 2000);
  _printf("decimal: %i binary: %b\n", 1952, 1952);
  _printf("decimal: %i binary: %b\n", 999999, 999999);
+ _printf("decimal: %i binary: %b\n", 1, 1);
+ _printf("decimal: %i binary: %b\n", 0, 0);
  
+ printf("a missing option %d\n");
+_printf("a missing option %d\n");
+
+ printf("not missing option %%\n");
+_printf("not missing option %%\n");
+
+ printf("a missing modifier\n",55);
+_printf("a missing modifier\n",55);
+
+ _printf("%c\n",49);
+  printf("this is debug line \n");
+ printf("%c\n",49);
+ printf("i: %i , d: %d", 010, 010); 
+
+
 
 /*   _printf("Unknown:[%r]\n");
  */  /* printf("Unknown:[%r]\n"); */
