@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+#include <stdio.h>
 
 
 /**
@@ -12,6 +13,8 @@ char *pchr(va_list ap)
 	char *s;
 
 	s = malloc(sizeof(char) * 2);
+	if (s == NULL)
+		return (NULL);
 
 	s[0] = va_arg(ap, int);
 	s[1] = '\0';
@@ -46,9 +49,17 @@ char *pstr(va_list ap)
 char *pint(va_list ap)
 {
 	int d;
+	char *s;
 
 	d = va_arg(ap, int);
-	return (_itoa(d));
+	if (d == 0)
+	{
+		s = _strdup("0");
+		return(s);
+	}
+	s = _itoa(d);
+	
+	return (s);
 }
 
 /**
@@ -72,20 +83,33 @@ char *pper(va_list ap __attribute__((unused)))
 char *pbi(va_list ap)
 {
 	size_t n;
-	char *bin = malloc(sizeof(char));
-	int rem, i = 0;
+	char *bin;
+	int rem = 0, i = 0;
 
-	bin[0] = '0';
-	
 	n = va_arg(ap, size_t);
+	if (n == 0)
+	{
+		bin = _strdup("0");
+		return (bin);
+	}
+
+	
+	bin = malloc(sizeof(char));
+	
 	while (n!=0)
   	{
     	rem = n % 2;
     	n /= 2;
+		bin = realloc(bin, i + 1);
+		if (bin == NULL)
+			return (NULL);
     	bin[i++] = rem + '0';
-		bin = realloc(bin, i);
   	}
+	/* printf("\ni = %d\n",i); */
+	bin = realloc(bin, i + 1);
+	bin[i] = '\0';
 	rev_string(bin);
+
 
    return (bin);
 }

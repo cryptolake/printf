@@ -204,7 +204,7 @@ char *_itoau(size_t n)
  **/
 void swap(char *a, char *b)
 {
-	int c;
+	char c;
 
 	c = *a;
 	*a = *b;
