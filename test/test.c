@@ -121,5 +121,7 @@ int main(void)
 	putchar('\n');
 	printf("Normal hex\n");
 _printf("1 : %X %x\n", 15 ,15);
+len2 = printf(NULL);
+printf("%d",len2);
 	return (0);
 }

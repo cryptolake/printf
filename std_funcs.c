@@ -76,7 +76,12 @@ char *_strdup(char *str)
 
 	return (s);
 }
-
+/**
+* _abs - return absolute value
+* @n: number
+*
+* Return: absolute value
+**/
 int _abs(int n)
 {
 	if (n < 0)
@@ -110,6 +115,7 @@ int count_d10(int n)
  * _itoa - int to str
  *
  * @n: number
+ * Return: string
  **/
 char *_itoa(int n)
 {
@@ -159,6 +165,7 @@ char *_itoa(int n)
  * _itoau - unsigned int to str
  *
  * @n: number
+ * Return: string
  **/
 char *_itoau(size_t n)
 {
@@ -223,8 +230,8 @@ void rev_string(char *s)
    int i;
  
 
-    for (i = 0; i < n / 2; i++)
-        swap(&s[i], &s[n - i - 1]);
+	for (i = 0; i < n / 2; i++)
+		swap(&s[i], &s[n - i - 1]);
 
 }
 
@@ -232,17 +239,18 @@ void rev_string(char *s)
 * reval - return char value from integer
 * 
 * @num: value
-*
+* @maj: uppercase or not
+* Return: char
 **/
 
 char reval(int num, int maj)
 {
-    if (num >= 0 && num <= 9)
-        return (char)(num + '0');
+	if (num >= 0 && num <= 9)
+		return (char)(num + '0');
 	else if (maj)
 		return (char)(num - 10 + 'A');
-    else
-        return (char)(num - 10 + 'a');
+	else
+		return (char)(num - 10 + 'a');
 }
 
 
@@ -251,7 +259,9 @@ char reval(int num, int maj)
 * 
 * @n: number
 * @base: base
+* @maj: uppercase or not
 *
+* Return: string
 **/
 char *from_dec(size_t n, int base, int maj)
 {
@@ -269,14 +279,13 @@ char *from_dec(size_t n, int base, int maj)
 	
 	while (n!=0)
   	{
-    	rem = n % base;
-    	n /= base;
+		rem = n % base;
+		n /= base;
 		s = realloc(s, i + 1);
 		if (s == NULL)
 			return (NULL);
-    	s[i++] = reval(rem, maj);
+		s[i++] = reval(rem, maj);
   	}
-	/* printf("\ni = %d\n",i); */
 	s = realloc(s, i + 1);
 	s[i] = '\0';
 	rev_string(s);

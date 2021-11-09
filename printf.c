@@ -5,30 +5,20 @@ void _putchar(char c)
 	write(STDOUT_FILENO, &c, 1);
 }
 
-
 int _printf(const char *format, ...)
 {
+
 	char *s;
 	int l = 0;
 
-	types ops[] = {
-	{'c', pchr},
-	{'s', pstr},
-	{'i', pint},
-	{'d', pint},
-	{'%', pper},
-	{'b', pbi},
-	{'o', poct},
-	{'u', punsign},
-	{'x', phex},
-	{'X', pheX},
-	{0, NULL}
+	types ops[] = {{'c', pchr}, {'s', pstr}, {'i', pint}, {'d', pint},
+					{'%', pper}, {'b', pbi}, {'o', poct}, {'u', punsign},
+					{'x', phex}, {'X', pheX}, {0, NULL}
 	};
 
 	int i = 0, j = 0;
 
 	va_list ap;
-	
 
 	if (format == NULL || (_strlen(format) == 1 && format[i] == '%'))
 		return (-1);

@@ -4,9 +4,9 @@
 
 
 /**
- * pchr - print char arg
+ * pchr - return char arg
  * @ap: arg
- *
+ * Return: char
  **/
 char *pchr(va_list ap)
 {
@@ -24,9 +24,9 @@ char *pchr(va_list ap)
 }
 
 /**
- * pstr - print string arg
+ * pstr - return string arg
  * @ap: arg
- *
+ * Return: char
  **/
 char *pstr(va_list ap)
 {
@@ -42,9 +42,9 @@ char *pstr(va_list ap)
 }
 
 /**
- * pint - print int arg
+ * pint - return int arg
  * @ap: arg
- *
+ * Return: char
  **/
 char *pint(va_list ap)
 {
@@ -55,30 +55,29 @@ char *pint(va_list ap)
 	if (d == 0)
 	{
 		s = _strdup("0");
-		return(s);
+		return (s);
 	}
 	s = _itoa(d);
-	
 	return (s);
 }
 
 /**
- * pper - print % arg
+ * pper - return % arg
  * @ap: arg
- * 
+ * Return: char
  */
 char *pper(va_list ap __attribute__((unused)))
 {
 	char *s;
-	
+
 	s = _strdup("%");
 	return (s);
 }
 
 /**
- * pbi - print binary arg
+ * pbi - return binary arg
  * @ap: arg
- *
+ * Return: char
  **/
 char *pbi(va_list ap)
 {
@@ -93,13 +92,13 @@ char *pbi(va_list ap)
 /**
  * poct - return octal arg
  * @ap: arg
- *
+ * Return: char
  **/
 char *poct(va_list ap)
 {
 	size_t n;
 	char *s;
-	
+
 	n = va_arg(ap, size_t);
 	s = from_dec(n, 8, 0);
 	return (s);
@@ -108,13 +107,13 @@ char *poct(va_list ap)
 /**
  * pheX - return hex arg
  * @ap: arg
- *
+ * Return: char
  **/
 char *pheX(va_list ap)
 {
 	size_t n;
 	char *s;
-	
+
 	n = va_arg(ap, size_t);
 	s = from_dec(n, 16, 1);
 	return (s);
@@ -123,13 +122,13 @@ char *pheX(va_list ap)
 /**
  * phex - return hex arg
  * @ap: arg
- *
+ * Return: char
  **/
 char *phex(va_list ap)
 {
 	size_t n;
 	char *s;
-	
+
 	n = va_arg(ap, size_t);
 	s = from_dec(n, 16, 0);
 	return (s);
@@ -138,7 +137,7 @@ char *phex(va_list ap)
 /**
  * punsign - return unsigned int arg in string
  * @ap: arg
- *
+ * Return: char
  **/
 char *punsign(va_list ap)
 {
@@ -149,10 +148,10 @@ char *punsign(va_list ap)
 	if (d == 0)
 	{
 		s = _strdup("0");
-		return(s);
+		return (s);
 	}
 
 	s = _itoau(d);
-	
+
 	return (s);
 }
