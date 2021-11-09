@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int _printf(const char *format, ...);
 typedef unsigned long int size_t;
 
 typedef struct {
@@ -28,7 +29,6 @@ char *pheX(va_list ap);
 /* Standard functions */
 char *from_dec(size_t n, int base, int maj);
 char *_strdup(char *str);
-int _printf(const char *format, ...);
 int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
 char *_itoa(int d);
