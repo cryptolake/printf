@@ -113,3 +113,28 @@ char *pbi(va_list ap)
 
    return (bin);
 }
+/**
+ * punsign - return unsigned int arg in string
+ * @ap: arg
+ *
+ **/
+char *punsign(va_list ap)
+{
+	size_t d;
+	char *s;
+
+	d = va_arg(ap, size_t);
+	if (d == 0)
+	{
+		s = _strdup("0");
+		return(s);
+	}
+	if (d < 0)
+	{
+		s = _strdup("4294967271");
+		return (s);
+	}
+	s = _itoau(d);
+	
+	return (s);
+}

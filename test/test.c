@@ -84,7 +84,7 @@ int main(void) {
  len = _printf("Lets print binary!\n");
  _printf("decimal: %i binary: %b\n", len, len);
 
- _printf("decimal: %i binary: %b\n", 2000, 2000);
+ _printf("decimal: %i binary: %b\n", 5, 5);
  _printf("decimal: %i binary: %b\n", 1952, 1952);
  _printf("decimal: %i binary: %b\n", 999999, 999999);
  _printf("decimal: %i binary: %b\n", 1, 1);
@@ -99,13 +99,17 @@ _printf("not missing option %%\n");
  printf("a missing modifier\n",55);
 _printf("a missing modifier\n",55);
 
- _printf("%c\n",49);
+ len = _printf("%c%s",'c',"Ahm");
+ printf("\n");
+ _printf("lenght of c and s: %d\n", len);
   printf("this is debug line \n");
  printf("%c\n",49);
- printf("i: %i , d: %d", 010, 010); 
-
-
-
+/*  printf("i: %i , d: %d", 010, 010);  */
+putchar('\n');
+printf("u: %u\n" , 3294967295); 
+_printf("u: %u\n" , 3294967295);
+printf("u: %u\n" , -25);
+_printf("u: %u\n" , -25);
 /*   _printf("Unknown:[%r]\n");
  */  /* printf("Unknown:[%r]\n"); */
   return (0);
