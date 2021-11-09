@@ -12,6 +12,9 @@ typedef struct {
 
 } types;
 
+void _putchar(char c);
+
+/* Return string from specified type */
 char *pchr(va_list ap);
 char *pstr(va_list ap);
 char *pint(va_list ap);
@@ -22,14 +25,11 @@ char *poct(va_list ap);
 char *phex(va_list ap);
 char *pheX(va_list ap);
 
+/* Standard functions */
 char *from_dec(size_t n, int base, int maj);
-
 char *_strdup(char *str);
-
 int _printf(const char *format, ...);
-
 int _strlen(const char *s);
-
 char *_strcpy(char *dest, char *src);
 char *_itoa(int d);
 char *_itoau(size_t n);

@@ -1,6 +1,17 @@
 #include "main.h"
 
 /**
+ * _putchar - print char to stdout
+ * @c: char
+ *
+ **/
+void _putchar(char c)
+{
+	write(STDOUT_FILENO, &c, 1);
+}
+
+
+/**
  * _strlen - get length of string
  *
  * @s: string
@@ -254,9 +265,11 @@ char reval(int num, int maj)
 }
 
 
+
+
 /**
 * from_dec - convert to decimal any base
-* 
+*
 * @n: number
 * @base: base
 * @maj: uppercase or not
