@@ -256,6 +256,8 @@ void swap(char *a, char *b)
  * rev_string - reverse string
  *
  * @s: string
+ *
+ * Return: string reversed
  **/
 char *rev_string(char *s)
 {

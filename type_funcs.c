@@ -173,6 +173,12 @@ char *prev(va_list ap)
 }
 
 
+
+/**
+ * prot - return string in rot13
+ * @ap: arg
+ * Return: char
+ **/
 char *prot(va_list ap)
 {
 	char *s;
