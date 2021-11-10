@@ -1,0 +1,36 @@
+.\" Manpage for _printf
+.TH "11/09/2021" "1.0" "_printf man page"
+.SH NAME
+    Function prints string that contains specifiers. 
+.SH SYNOPSIS
+    #include "main.h"
+    int _printf(const char *restrict format, ...);
+.SH DESCRIPTION
+    The funciton _printf produce output according to a format as described in the examples.
+    The format can contain one or more characters and one or more specifiers.
+    These are the specifiers can be used in _printf :
+    %c : to print a character.
+    %s : to print a string.
+    %d, %i : to print an integer.
+    %u : to print an unsigned int.
+    %b : to print an unsigned int as a binary.
+    %o : to print an unsigned int as an octal.
+    %x : to print an unsigned int as an hexadecimal with lowercase.
+    %X : to print an unsigned int as an hexadecimal with uppercase.
+    %r : to print string in reverse.
+    %R : to print a string encrypted via ROT13.
+.SH EXAMPLES
+    input : _printf("%s.", "Hi, I can print everything");
+    output: Hi, I can print everything.
+    input : _printf("The best funciton to print an integer %d.", 007);
+    output: The best funciton to print an integer 007.
+    input : _printf("From %c to %c.", 'A', 'C');
+    output: From A to Z.
+    input : _printf("%r", "reverse");
+    output: esrever
+    input : _printf("%b", 1024);
+    output: 10000000000
+    input : _printf("%R", "HELLO");
+    output: URYYB
+.SH AUTHOR
+    Dhia DH ,Rayen Hedri.
