@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	char *s, *si;
-	int l = 0, i = 0, j = 0, k = 0;
+	int l = 0, i = 0, j = 0, k = 0, x = 0;
 	va_list ap;
 	types ops[] = {{'c', pchr}, {'s', pstr}, {'i', pint}, {'d', pint},
 		{'%', pper}, {'b', pbi}, {'o', poct}, {'u', punsign},
@@ -49,8 +49,10 @@ int _printf(const char *format, ...)
 					free(si);
 					return (-1);
 				}
-
-				for (l = 0; l < _strlen(si); l++)
+				x = 0;
+				if (ops[j].tp == 'c' && si[0] == '\0')
+					x = 1;
+				for (l = 0; l < _strlen(si) + x; l++)
 					s[k++] = si[l];
 
 				free(si);
