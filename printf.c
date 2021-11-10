@@ -21,6 +21,8 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(ap, format);
 	s = malloc(1);
+	if (s == NULL)
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -33,8 +35,12 @@ int _printf(const char *format, ...)
 			if (ops[j].tp == format[i + 1])
 			{
 				si = ops[j].f(ap);
+				if (si == NULL)
+					return (-1);
 
 				s = _realloc(s, k, (k + _strlen(si)));
+				if (s == NULL)
+					return (-1);
 
 				for (l = 0; l < _strlen(si); l++)
 					s[k++] = si[l];
@@ -45,12 +51,16 @@ int _printf(const char *format, ...)
 			else
 			{
 				s = _realloc(s, k, k + 1);
+				if (s == NULL)
+					return (-1);
 				s[k++] = format[i++];
 			}
 		}
 		else
 		{
 			s = _realloc(s, k, k + 1);
+			if (s == NULL)
+				return (-1);
 			s[k++] = format[i++];
 		}
 	}
