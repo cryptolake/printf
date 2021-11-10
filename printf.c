@@ -49,9 +49,11 @@ int _printf(const char *format, ...)
 					free(si);
 					return (-1);
 				}
+
 				x = 0;
 				if (ops[j].tp == 'c' && si[0] == '\0')
 					x = 1;
+
 				for (l = 0; l < _strlen(si) + x; l++)
 					s[k++] = si[l];
 

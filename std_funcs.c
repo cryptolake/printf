@@ -124,6 +124,27 @@ int count_d10(int n)
 }
 
 /**
+ * count_d10 - count number of digits
+ *
+ * @n: number
+ *
+ * Return: 10^count-1
+ **/
+sizet count_d10_u(sizet n)
+{
+	int x;
+
+	x = 1;
+	n /= 10;
+	while (n != 0)
+	{
+		n /= 10;
+		x *= 10;
+	}
+	return (x);
+}
+
+/**
  * _itoa - int to str
  *
  * @n: number
@@ -195,7 +216,7 @@ char *_itoau(sizet n)
 		l++;
 	}
 
-	x = count_d10(n);
+	x = count_d10_u(n);
 
 
 	s = malloc(sizeof(char) * (l + y + 1));
@@ -278,10 +299,10 @@ char reval(int num, int maj)
 *
 * Return: string
 **/
-char *from_dec(sizet n, int base, int maj)
+char *from_dec(sizet n, sizet base, sizet maj)
 {
 	char *s;
-	int rem = 0, i = 0;
+	sizet rem = 0, i = 0;
 
 	if (n == 0)
 	{

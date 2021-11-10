@@ -29,7 +29,7 @@ char *prev(va_list ap);
 char *prot(va_list ap);
 
 /* Standard functions */
-char *from_dec(sizet n, int base, int maj);
+char *from_dec(sizet n, sizet base, sizet maj);
 char *_strdup(char *str);
 int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
