@@ -80,10 +80,10 @@ char *pper(va_list ap __attribute__((unused)))
  **/
 char *pbi(va_list ap)
 {
-	size_t n;
+	sizet n;
 	char *s;
 
-	n = va_arg(ap, size_t);
+	n = va_arg(ap, sizet);
 	s = from_dec(n, 2, 0);
 	return (s);
 }
@@ -95,10 +95,10 @@ char *pbi(va_list ap)
  **/
 char *poct(va_list ap)
 {
-	size_t n;
+	sizet n;
 	char *s;
 
-	n = va_arg(ap, size_t);
+	n = va_arg(ap, sizet);
 	s = from_dec(n, 8, 0);
 	return (s);
 }
@@ -110,10 +110,10 @@ char *poct(va_list ap)
  **/
 char *pheX(va_list ap)
 {
-	size_t n;
+	sizet n;
 	char *s;
 
-	n = va_arg(ap, size_t);
+	n = va_arg(ap, sizet);
 	s = from_dec(n, 16, 1);
 	return (s);
 }
@@ -125,10 +125,10 @@ char *pheX(va_list ap)
  **/
 char *phex(va_list ap)
 {
-	size_t n;
+	sizet n;
 	char *s;
 
-	n = va_arg(ap, size_t);
+	n = va_arg(ap, sizet);
 	s = from_dec(n, 16, 0);
 	return (s);
 }
@@ -140,10 +140,10 @@ char *phex(va_list ap)
  **/
 char *punsign(va_list ap)
 {
-	size_t d;
+	sizet d;
 	char *s;
 
-	d = va_arg(ap, size_t);
+	d = va_arg(ap, sizet);
 	if (d == 0)
 	{
 		s = _strdup("0");

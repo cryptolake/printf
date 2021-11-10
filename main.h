@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 int _printf(const char *format, ...);
-typedef unsigned long int size_t;
+typedef unsigned int sizet;
 
 typedef struct {
 	char tp;
@@ -27,12 +27,12 @@ char *phex(va_list ap);
 char *pheX(va_list ap);
 
 /* Standard functions */
-char *from_dec(size_t n, int base, int maj);
+char *from_dec(sizet n, int base, int maj);
 char *_strdup(char *str);
 int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
 char *_itoa(int d);
-char *_itoau(size_t n);
+char *_itoau(sizet n);
 void rev_string(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 

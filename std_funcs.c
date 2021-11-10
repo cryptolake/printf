@@ -178,10 +178,10 @@ char *_itoa(int n)
  * @n: number
  * Return: string
  **/
-char *_itoau(size_t n)
+char *_itoau(sizet n)
 {
 	char *s;
-	size_t x = 0,
+	sizet x = 0,
 	y = 0,
 	c = 0,
 	i = 0,
@@ -276,7 +276,7 @@ char reval(int num, int maj)
 *
 * Return: string
 **/
-char *from_dec(size_t n, int base, int maj)
+char *from_dec(sizet n, int base, int maj)
 {
 	char *s;
 	int rem = 0, i = 0;
