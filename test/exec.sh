@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-print()
+test1()
 {
 	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test.c  type_funcs.c
 
@@ -15,7 +15,7 @@ print()
 	fi
 }
 
-itoa()
+test2()
 {
 	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89  std_funcs.c  test1.c
 
@@ -29,7 +29,7 @@ itoa()
 	fi
 }
 
-strlen()
+test3()
 {
 	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89  std_funcs.c  test2.c
 	if [ $(echo $?) = 0 ]; then
@@ -42,7 +42,7 @@ strlen()
 	fi
 }
 
-string()
+test4()
 {
 	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test3.c  type_funcs.c
 	if [ $(echo $?) = 0 ]; then
@@ -55,7 +55,7 @@ string()
 	fi
 }
 
-complex()
+test5()
 {
 
 	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test4.c  type_funcs.c
@@ -69,25 +69,41 @@ complex()
 	fi
 }
 
+test6()
+{
+
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test5.c  type_funcs.c
+	if [ $(echo $?) = 0 ]; then
+
+		./a.out
+		rm a.out
+
+		else
+			echo -e "\n Compilation error will not execute!"
+	fi
+}
 
 case $1 in
-	print)
-		print
+	test1)
+		test1
 		;;
-	itoa)
-		 itoa
+	test2)
+		 test2
 	;;
-	strlen)
-		strlen
+	test3)
+		test3
 		;;
-	string)
-		string
+	test4)
+		test4
 		;;
-	complex)
-		complex
+	test5)
+		test5
+		;;
+	test6)
+		test6
 		;;
 	*)
-		echo "Type a test name!"
+		echo "Type a test number!"
 		;;
 
 esac
