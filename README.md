@@ -1,6 +1,7 @@
 # printf
 
-This is *our* printf right here made 100% from scratch
+This is *our* printf right here done in pair programming with the vscode live share pluginmade 100% from scratch!
+
 well appart from some functions.
 
 ## Usage

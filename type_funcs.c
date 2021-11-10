@@ -20,7 +20,6 @@ char *pchr(va_list ap)
 	s[1] = '\0';
 
 	return  (s);
-
 }
 
 /**

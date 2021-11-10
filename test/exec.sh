@@ -42,6 +42,34 @@ strlen()
 	fi
 }
 
+string()
+{
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test3.c  type_funcs.c
+	if [ $(echo $?) = 0 ]; then
+
+		./a.out
+		rm a.out
+
+		else
+			echo -e "\n Compilation error will not execute!"
+	fi
+}
+
+complex()
+{
+
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test4.c  type_funcs.c
+	if [ $(echo $?) = 0 ]; then
+
+		./a.out
+		rm a.out
+
+		else
+			echo -e "\n Compilation error will not execute!"
+	fi
+}
+
+
 case $1 in
 	print)
 		print
@@ -51,6 +79,12 @@ case $1 in
 	;;
 	strlen)
 		strlen
+		;;
+	string)
+		string
+		;;
+	complex)
+		complex
 		;;
 	*)
 		echo "Type a test name!"

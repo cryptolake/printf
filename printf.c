@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 
 
 /**
@@ -9,54 +10,54 @@
  **/
 int _printf(const char *format, ...)
 {
-
-	char *s;
-	int l = 0, i = 0, j = 0;
+	char *s, *si;
+	int l = 0, i = 0, j = 0, k = 0;
 	va_list ap;
 	types ops[] = {{'c', pchr}, {'s', pstr}, {'i', pint}, {'d', pint},
 					{'%', pper}, {'b', pbi}, {'o', poct}, {'u', punsign},
-					{'x', phex}, {'X', pheX}, {0, NULL}
-	};
-
+					{'x', phex}, {'X', pheX}, {0, NULL}};
 
 	if (format == NULL || (_strlen(format) == 1 && format[i] == '%'))
 		return (-1);
-
 	va_start(ap, format);
-
+	s = malloc(1);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			j = 0;
+
 			while (ops[j].tp && ops[j].tp != format[i + 1])
 				j++;
 
 			if (ops[j].tp == format[i + 1])
 			{
-				s = ops[j].f(ap);
-				if (s == NULL)
-					return (-1);
-				l += _strlen(s);
+				si = ops[j].f(ap);
 
-				write(STDOUT_FILENO, s, _strlen(s));
-				free(s);
+				s = _realloc(s, k, (k + _strlen(si)));
+
+				for (l = 0; l < _strlen(si); l++)
+					s[k++] = si[l];
+
+				free(si);
 				i += 2;
 			}
 			else
 			{
-				_putchar(format[i]);
-				i++;
-				l++;
+				s = _realloc(s, k, k + 1);
+				s[k++] = format[i++];
 			}
 		}
 		else
 		{
-			_putchar(format[i]);
-			i++;
-			l++;
+			s = _realloc(s, k, k + 1);
+			s[k++] = format[i++];
 		}
 	}
 	va_end(ap);
+
+	l = write(STDOUT_FILENO, s, k);
+
+	free(s);
 	return (l);
 }

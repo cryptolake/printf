@@ -64,7 +64,7 @@ int main(void)
 	len = printf("%");
 	putchar('\n');
 
-	printf("len when %%= %d\n", len);
+	printf("len when %% = %d\n", len);
 
 	len = _printf("%");
 	putchar('\n');
