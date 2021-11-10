@@ -53,12 +53,12 @@ int main(void)
 	printf("test %%%i%%%d%%%d%%\n", 5, 6, 7);
 	_printf("test %%%i%%%d%%%d%%\n", 5, 6, 7);
 
-	printf("test %%%i%%%d%%%d%%%r\n", 5, 6, 7);
-	_printf("test %%%i%%%d%%%d%%%r\n", 5, 6, 7);
+	printf("test %%%i%%%d%%%d%%%v\n", 5, 6, 7);
+	_printf("test %%%i%%%d%%%d%%%v\n", 5, 6, 7);
 
-	printf("%d%d%%%r%%%d%r%i", 2323, 333, 55555, 234);
+	printf("%d%d%%%v%%%d%v%i", 2323, 333, 55555, 234);
 	putchar('\n');
-	_printf("%d%d%%%r%%%d%r%i", 2323, 333, 55555, 234);
+	_printf("%d%d%%%v%%%d%v%i", 2323, 333, 55555, 234);
 	putchar('\n');
 
 	len = printf("%");
@@ -110,9 +110,6 @@ int main(void)
 	_printf("u: %u\n", 3294967295);
 	printf("u: %u\n", -25);
 	_printf("u: %u\n", -25); */
-	/*   _printf("Unknown:[%r]\n");
- */
-	/* printf("Unknown:[%r]\n"); */
 	len = printf("an interesting test!\n");
 	printf("Test result = \"\n", len);
 

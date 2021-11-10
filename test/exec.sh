@@ -83,6 +83,33 @@ test6()
 	fi
 }
 
+test7()
+{
+
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test6.c  type_funcs.c
+	if [ $(echo $?) = 0 ]; then
+
+		./a.out
+		rm a.out
+
+		else
+			echo -e "\n Compilation error will not execute!"
+	fi
+}
+
+test8()
+{
+
+	gcc -Wall -Werror -Wextra -Wno-format -pedantic -std=gnu89 printf.c  std_funcs.c  test7.c  type_funcs.c
+	if [ $(echo $?) = 0 ]; then
+
+		./a.out
+		rm a.out
+
+		else
+			echo -e "\n Compilation error will not execute!"
+	fi
+}
 case $1 in
 	test1)
 		test1
@@ -101,6 +128,12 @@ case $1 in
 		;;
 	test6)
 		test6
+		;;
+	test7)
+		test7
+		;;
+	test8)
+		test8
 		;;
 	*)
 		echo "Type a test number!"

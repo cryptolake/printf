@@ -14,13 +14,13 @@ int _printf(const char *format, ...)
 	int l = 0, i = 0, j = 0, k = 0;
 	va_list ap;
 	types ops[] = {{'c', pchr}, {'s', pstr}, {'i', pint}, {'d', pint},
-					{'%', pper}, {'b', pbi}, {'o', poct}, {'u', punsign},
-					{'x', phex}, {'X', pheX}, {0, NULL}};
+		{'%', pper}, {'b', pbi}, {'o', poct}, {'u', punsign},
+		{'x', phex}, {'X', pheX}, {'r', prev},{'R', prot}, {0, NULL}};
 
 	if (format == NULL || (_strlen(format) == 1 && format[i] == '%'))
 		return (-1);
 	va_start(ap, format);
-	s = malloc(1);
+	s = malloc(0);
 	if (s == NULL)
 		return (-1);
 	while (format[i])
@@ -36,11 +36,19 @@ int _printf(const char *format, ...)
 			{
 				si = ops[j].f(ap);
 				if (si == NULL)
+				{
+					free(s);
+					free(si);
 					return (-1);
+				}
 
 				s = _realloc(s, k, (k + _strlen(si)));
 				if (s == NULL)
+				{
+					free(s);
+					free(si);
 					return (-1);
+				}
 
 				for (l = 0; l < _strlen(si); l++)
 					s[k++] = si[l];
@@ -52,7 +60,10 @@ int _printf(const char *format, ...)
 			{
 				s = _realloc(s, k, k + 1);
 				if (s == NULL)
+				{
+					free(s);
 					return (-1);
+				}
 				s[k++] = format[i++];
 			}
 		}
@@ -60,7 +71,10 @@ int _printf(const char *format, ...)
 		{
 			s = _realloc(s, k, k + 1);
 			if (s == NULL)
+			{
+				free(s);
 				return (-1);
+			}
 			s[k++] = format[i++];
 		}
 	}

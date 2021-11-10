@@ -235,7 +235,7 @@ void swap(char *a, char *b)
  *
  * @s: string
  **/
-void rev_string(char *s)
+char *rev_string(char *s)
 {
    int n = _strlen(s);
    int i;
@@ -244,6 +244,7 @@ void rev_string(char *s)
 	for (i = 0; i < n / 2; i++)
 		swap(&s[i], &s[n - i - 1]);
 
+	return (s);
 }
 
 /**
@@ -361,4 +362,35 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	free(ptr);
 
 	return (nptr);
+}
+
+/**
+ * rot13 - encodes string in rot13 cipher
+ * @s: string
+ *
+ * Return: pointer to string
+ **/
+char *rot13(char *s)
+{
+
+	int i, j, b;
+	char *a2;
+	char *a1;
+
+	a1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	a2 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		b = 1;
+		for (j = 0; a1[j] != '\0' && b; j++)
+		{
+			if (s[i] == a1[j])
+			{
+				s[i] = a2[j];
+				b = 0;
+			}
+		}
+	}
+	return (s);
 }

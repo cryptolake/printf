@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 #include "main.h"
 
 /**
@@ -11,11 +10,9 @@
 int main(void)
 {
 	int len, len2;
-	long int l = UINT_MAX;
 
-	l += 1024;
-	len = _printf("%b", l);
-	len2 = printf("1111111111");
+	len = _printf("%r", "\nThis sentence is retrieved from va_args!");
+	len2 = printf("!sgra_av morf deveirter si ecnetnes sihT\n");
 	fflush(stdout);
 	if (len != len2)
 	{

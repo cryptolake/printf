@@ -25,6 +25,8 @@ char *punsign(va_list ap);
 char *poct(va_list ap);
 char *phex(va_list ap);
 char *pheX(va_list ap);
+char *prev(va_list ap);
+char *prot(va_list ap);
 
 /* Standard functions */
 char *from_dec(sizet n, int base, int maj);
@@ -33,7 +35,8 @@ int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
 char *_itoa(int d);
 char *_itoau(sizet n);
-void rev_string(char *s);
+char *rev_string(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *rot13(char *s);
 
 #endif

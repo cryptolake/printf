@@ -154,3 +154,31 @@ char *punsign(va_list ap)
 
 	return (s);
 }
+
+
+/**
+ * prev - return reversed string
+ * @ap: arg
+ * Return: char
+ **/
+char *prev(va_list ap)
+{
+	char *s;
+	s = _strdup(va_arg(ap, char *));
+	if (s == NULL)
+		return (NULL);
+
+	return(rev_string(s));
+
+}
+
+
+char *prot(va_list ap)
+{
+	char *s;
+	s = _strdup(va_arg(ap, char *));
+	if (s == NULL)
+		return (NULL);
+
+	return(rot13(s));
+}
