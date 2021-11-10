@@ -33,7 +33,7 @@ Check out the [Man Page](man_3_printf) for detailed usage.
 
 ### Checkout this flowchart explaining the functions flow
 
-![flowchart](printf.png)
+![flowchart](printf.jpg)
 
 ### What each file is for
 
