@@ -120,5 +120,6 @@ int main(void)
 _printf("1 : %X %x\n", 15 ,15);
 len2 = printf(NULL);
 printf("%d",len2);
+_printf("%p", (void *)0x7fff5100b608);
 	return (0);
 }
